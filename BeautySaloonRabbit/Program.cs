@@ -8,6 +8,7 @@ namespace BeautySaloonRabbit
 {
     internal static class Program
     {
+        static public models.Model1 db = new models.Model1();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +17,7 @@ namespace BeautySaloonRabbit
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormAuth());
         }
     }
 }

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BeautySaloonRabbit
 {
-    public partial class Form1 : Form
+    public partial class FormHairdresser : Form
     {
-        public Form1()
+        public FormHairdresser()
         {
             InitializeComponent();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            textBoxPassword.UseSystemPasswordChar = !checkBox1.Checked;
         }
     }
 }

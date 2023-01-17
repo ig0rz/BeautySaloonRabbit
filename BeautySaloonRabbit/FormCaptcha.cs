@@ -12,7 +12,8 @@ namespace BeautySaloonRabbit
 {
     public partial class FormCaptcha : Form
     {
-        Random rnd = new Random();//Для обновления капчи
+        static Random rnd = new Random();//Для обновления капчи
+        int randomInt = rnd.Next(1, 4);
         public FormCaptcha()
         {
             InitializeComponent();
@@ -25,14 +26,26 @@ namespace BeautySaloonRabbit
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
+            if (((textBoxCaptcha.Text == "smwm" || textBoxCaptcha.Text == "SMWM") && randomInt == 1)|| //Проверка капчи
+               ((textBoxCaptcha.Text == "s82s" || textBoxCaptcha.Text == "S82S") && randomInt == 2) ||
+               ((textBoxCaptcha.Text == "0096") && randomInt == 3) ||
+               ((textBoxCaptcha.Text == "2vyk" || textBoxCaptcha.Text == "2VYK") && randomInt == 4))
 
+            {
+                DialogResult = DialogResult.OK; //Капча пройдена
+            }
+            else
+            {
+                MessageBox.Show("Капча введена неверно, попробуйте снова.");
+                textBoxCaptcha.Text = "";
+                return;
+            }
         }
 
         private void createImage() //Метод для показа капчи
         {
-
-
-            switch (rnd.Next(1, 4)) //Показ рандомной капчи
+            randomInt = rnd.Next(1, 4);
+            switch (randomInt) //Показ рандомной капчи
             {
                 case 1:
                     pictureBoxCaptcha.Image = Properties.Resources.captcha1 as Bitmap;
